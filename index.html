@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026秋季嘔蘋果之旅</title>
+<style>
+:root {
+--primary-color: #d9381e;
+--bg-color: #f7f9fa;
+--card-bg: #ffffff;
+--text-color: #333333;
+--border-color: #e2e8f0;
+}
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+background-color: var(--bg-color);
+color: var(--text-color);
+margin: 0;
+padding-bottom: 75px;
+}
+
+header {
+background-color: var(--primary-color);
+color: white;
+text-align: center;
+padding: 15px;
+font-size: 1.2rem;
+font-weight: bold;
+position: sticky;
+top: 0;
+z-index: 100;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Tab Navigation */
+.tab-bar {
+position: fixed;
+bottom: 0;
+width: 100%;
+background-color: var(--card-bg);
+display: flex;
+justify-content: space-around;
+border-top: 1px solid var(--border-color);
+z-index: 100;
+}
+
+.tab-button {
+flex: 1;
+padding: 12px 0;
+border: none;
+background: none;
+font-size: 0.9rem;
+color: #666;
+cursor: pointer;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.tab-button.active {
+color: var(--primary-color);
+font-weight: bold;
+}
+
+.tab-content {
+display: none;
+padding: 15px;
+max-width: 800px;
+margin: 0 auto;
+}
+
+.tab-content.active {
+display: block;
+}
+
+/* Cards */
+.day-card, .summary-card, .expense-card {
+background: var(--card-bg);
+border-radius: 12px;
+padding: 15px;
+margin-bottom: 15px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.day-title {
+font-size: 1.1rem;
+font-weight: bold;
+color: var(--primary-color);
+border-bottom: 2px solid var(--primary-color);
+padding-bottom: 5px;
+margin-bottom: 10px;
+}
+
+.hotel-info {
+font-size: 0.85rem;
+background: #fff5f5;
+padding: 8px 12px;
+border-radius: 6px;
+margin-bottom: 12px;
+color: #c53030;
+}
+
+/* Timeline Items */
+.timeline-item {
+display: flex;
+flex-direction: column;
+border-left: 3px solid var(--primary-color);
+padding-left: 12px;
+margin-bottom: 12px;
+position: relative;
+}
+
+.timeline-time {
+font-size: 0.8rem;
+font-weight: bold;
+color: #718096;
+}
+
+.timeline-event {
+font-size: 0.95rem;
+font-weight: bold;
+margin: 2px 0;
+}
+
+.timeline-details {
+font-size: 0.85rem;
+color: #4a5568;
+}
+
+.btn-map {
+display: inline-block;
+margin-top: 4px;
+font-size: 0.75rem;
+color: #3182ce;
+text-decoration: none;
+background: #ebf8ff;
+padding: 3px 8px;
+border-radius: 4px;
+width: fit-content;
+}
+
+/* Tables */
+table {
+width: 100%;
+border-collapse: collapse;
+margin-top: 10px;
+font-size: 0.85rem;
+}
+
+th, td {
+border: 1px solid var(--border-color);
+padding: 8px;
+text-align: left;
+}
+
+th {
+background-color: #f7fafc;
+}
+
+.budget-input {
+width: 90%;
+padding: 4px;
+border: 1px solid #cbd5e0;
+border-radius: 4px;
+font-size: 0.85rem;
+}
+
+.summary-box {
+background-color: #feebc8;
+border-radius: 8px;
+padding: 12px;
+margin-top: 15px;
+font-size: 0.95rem;
+}
+
+.input-group {
+display: flex;
+gap: 8px;
+margin-bottom: 10px;
+flex-wrap: wrap;
+}
+
+.input-group input, .input-group select {
+padding: 8px;
+border: 1px solid var(--border-color);
+border-radius: 4px;
+flex: 1;
+}
+
+.btn-add {
+background-color: var(--primary-color);
+color: white;
+border: none;
+padding: 8px 15px;
+border-radius: 4px;
+cursor: pointer;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<header>🍎 2026秋季嘔蘋果之旅</header>
+
+<!-- 頁籤 1: 行程 (Day 1 - Day 8 完整展現) -->
+<div id="tab-itinerary" class="tab-content active">
+<p style="font-size: 0.8rem; color: #718096; text-align: center;">💡 提示：點擊任何行程文字均可實時修改內容</p>
+
+<!-- Day 1 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 1 - 2026/10/19 (月曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：Daiwa Roynet Hotel Aomori (Triple Room) | 費用: ¥122,748 | CFM: 1712103377</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">00:00 - 00:30</span>
+<span class="timeline-event" contenteditable="true">香港國際機場 Check in</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">02:35 - 08:20</span>
+<span class="timeline-event" contenteditable="true">HX606 香港 ➔ 成田機場 T1</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">09:46 - 10:45</span>
+<span class="timeline-event" contenteditable="true">成田機場 T1 ➔ 東京駅</span>
+<span class="timeline-details" contenteditable="true">🚆 N'EX 特急 (備選: 10:15-11:14)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">11:20 - 14:43</span>
+<span class="timeline-event" contenteditable="true">東京駅 ➔ 新青森駅 ➔ 青森駅</span>
+<span class="timeline-details" contenteditable="true">🚅 新幹線 11:20-14:43 (備選: 11:56-15:07) | 15:15-15:20 新青森➔青森</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">15:20 - 15:45</span>
+<span class="timeline-event" contenteditable="true">Daiwa Roynet Hotel Aomori Check in</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">15:45 - 16:30</span>
+<span class="timeline-event" contenteditable="true">廣田神社</span>
+<span class="timeline-details" contenteditable="true">📍 青森県青森市長島2丁目7-21 (開放: 08:30-16:30, 週三休)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=廣田神社+青森" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">18:30 - 20:00</span>
+<span class="timeline-event" contenteditable="true">晚餐 (TBC)</span>
+</div>
+</div>
+
+<!-- Day 2 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 2 - 2026/10/20 (火曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：Daiwa Roynet Hotel Aomori (Triple Room)</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">09:04 - 10:21</span>
+<span class="timeline-event" contenteditable="true">青森駅 ➔ 弘前駅 ➔ 蘋果公園</span>
+<span class="timeline-details" contenteditable="true">🚆JR 09:04-09:38 | 🚌 巴士 10:01-10:21 (6號巴士站)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">10:30 - 13:00</span>
+<span class="timeline-event" contenteditable="true">弘前蘋果公園</span>
+<span class="timeline-details" contenteditable="true"> Café ➔ 蘋果酒釀造所 ➔ 採摘蘋果 ➔ 蘋果之家&手信 | 📍 弘前市大字清水富田字寺沢125</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=弘前蘋果公園" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">13:28 - 15:30</span>
+<span class="timeline-event" contenteditable="true">大正浪漫喫茶室 & 弘前公園</span>
+<span class="timeline-details" contenteditable="true">🚌 巴士 13:28-13:35 至公園 | 13:45-14:30 喫茶室 | 14:30-15:30 公園散步</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=大正浪漫喫茶室" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">16:00 - 17:00</span>
+<span class="timeline-event" contenteditable="true">津輕藩睡魔村 (津軽藩ねぶた村)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=津軽藩ねぶた村" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">18:00 - 20:00</span>
+<span class="timeline-event" contenteditable="true">晚餐：Sushui Uehara (需預約)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">20:31 - 21:17</span>
+<span class="timeline-event" contenteditable="true">弘前駅 ➔ 青森駅 </span>
+<span class="timeline-details" contenteditable="true">🚆JR 20:31-21:17(較早班次: 19:55-20:41)</span>
+</div>
+</div>
+
+<!-- Day 3 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 3 - 2026/10/21 (水曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：Daiwa Roynet Hotel Aomori (Triple Room)</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">09:00 - 10:30</span>
+<span class="timeline-event" contenteditable="true">青森駅 ➔ 高山稻荷神社</span>
+<span class="timeline-details" contenteditable="true">🚕 定額的士 (費用: ¥11,000) (需預約)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">10:30 - 11:30</span>
+<span class="timeline-event" contenteditable="true">高山稻荷神社參觀</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=高山稻荷神社" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">11:30 - 13:30</span>
+<span class="timeline-event" contenteditable="true">太宰治紀念館斜陽館</span>
+<span class="timeline-details" contenteditable="true">🚕 的士至斜陽館 (¥7,000) | 12:00-13:30 參觀 (門票: ¥600)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=太宰治記念館斜陽館" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">13:56 - 14:21</span>
+<span class="timeline-event" contenteditable="true">金木駅 ➔ 津輕五所川原駅 (津輕鐵道)</span>
+<span class="timeline-details" contenteditable="true">🚆火車 票價: ¥560 | 14:21後 五所川原 + 午餐</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">16:46 - 18:23</span>
+<span class="timeline-event" contenteditable="true">五所川原駅 ➔ 青森駅</span>
+<span class="timeline-details" contenteditable="true">🚆JR / 備選巴士: 17:38-18:47 (¥1,200)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">19:00 - 21:00</span>
+<span class="timeline-event" contenteditable="true">晚餐：燒肉 Daijun(需預約)</span>
+</div>
+</div>
+
+<!-- Day 4 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 4 - 2026/10/22 (木曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：Daiwa Roynet Hotel Aomori (Triple Room)</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">08:10 - 10:22</span>
+<span class="timeline-event" contenteditable="true">青森駅 ➔ 馬門岩</span>
+<span class="timeline-details" contenteditable="true"> 🚌JR巴士 08:10-10:22 </span>
+
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">10:30 - 11:00</span>
+<span class="timeline-event" contenteditable="true">馬門岩 ➔ 雲井之瀧 (健行 Walk)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=雲井の滝" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">11:15 - 12:20</span>
+<span class="timeline-event" contenteditable="true">雲井之瀧 ➔ 雲井之流 ➔ 銚子大瀧</span>
+<span class="timeline-details" contenteditable="true">🚌 JR Bus (11:15-11:19) 至雲井之流 | 🚶 健行 (11:19-12:20) 至銚子大瀧</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=銚子大滝" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">12:24 - 14:15</span>
+<span class="timeline-event" contenteditable="true">銚子大瀧 ➔ 十和田湖 (Lunch + 散步)</span>
+<span class="timeline-details" contenteditable="true">🚌 JR Bus (12:24-1245) 至十和田湖</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=十和田湖" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">14:30 - 17:14</span>
+<span class="timeline-event" contenteditable="true">十和田湖 ➔ 青森駅</span>
+<span class="timeline-details" contenteditable="true"> 🚌JR巴士 14:30-17:14 </span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">17:30 - 19:00</span>
+<span class="timeline-event" contenteditable="true">青森駅 A-FACTORY 購物</span>
+<div class="timeline-item">
+</div>
+<span class="timeline-time" contenteditable="true">19:30 - 21:00</span>
+<span class="timeline-event" contenteditable="true">晚餐 すし居酒屋 樽</span>
+</div>
+</div>
+
+<!-- Day 5 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 5 - 2026/10/23 (金曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：Aomoriya 青森屋 (Triple room) | 費用: ¥91,260 (Paid-Carol)</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">09:16 - 11:30</span>
+<span class="timeline-event" contenteditable="true">青森縣立美術館</span>
+<span class="timeline-details" contenteditable="true">🚌 巴士 S51 (09:16-09:40, ¥250) | 門票: ¥700 | 🚌 回程ねぶたん號 (11:11-11:30, ¥300)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=青森県立美術館" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">11:30 - 13:00</span>
+<span class="timeline-event" contenteditable="true">午餐: 大西拉麵 & 酒店取行李</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">13:18 - 14:31</span>
+<span class="timeline-event" contenteditable="true">青森駅 ➔ 三澤駅 (青之森鐵道)</span>
+<span class="timeline-details" contenteditable="true">🚆青之森鐵道</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">15:10 - 15:15</span>
+<span class="timeline-event" contenteditable="true">三澤駅 ➔ 青森屋 (酒店接駁車，已預約)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">15:15+</span>
+<span class="timeline-event" contenteditable="true">Aomoriya 青森屋 Check in & 享受溫泉設施</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=星野集團+青森屋" target="_blank">🗺️ 地圖導覽</a>
+</div>
+</div>
+
+<!-- Day 6 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 6 - 2026/10/24 (土曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：Dormy Inn Honhachinohe (2 Double bed rooms) | 費用: ¥27,900 | CFM# 2026041216900160</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">06:30 - 10:00</span>
+<span class="timeline-event" contenteditable="true">青森屋 早餐 (最後入店 09:00)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">11:40 - 12:17</span>
+<span class="timeline-event" contenteditable="true">青森屋 ➔ 三澤駅 ➔ 八戶駅</span>
+<span class="timeline-details" contenteditable="true">🚌 接駁車 11:40-11:50 | 🚆 青之森鐵道 11:58-12:17</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">12:30 - 14:30</span>
+<span class="timeline-event" contenteditable="true">八食中心 (海鮮BBQ / 壽司 Lunch)</span>
+<span class="timeline-details" contenteditable="true">🚌 100日圓/150日圓巴士 12:30-12:42 (¥150)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=八食中心" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">14:30 - 15:30</span>
+<span class="timeline-event" contenteditable="true">八食中心 ➔ Dormy Inn Check in</span>
+<span class="timeline-details" contenteditable="true">🚕 的士 (¥2,700) | 15:00 Check in</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">15:30 - 19:00</span>
+<span class="timeline-event" contenteditable="true">八戶酒類 八鶴工場參觀 & 城市漫步 / 沼館 Shopping</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=八戶酒類+八鶴工場" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">19:00 - 21:00</span>
+<span class="timeline-event" contenteditable="true">晚餐：みろく橫丁 (Miroku Yokocho)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=みろく横丁" target="_blank">🗺️ 地圖導覽</a>
+</div>
+</div>
+
+<!-- Day 7 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 7 - 2026/10/25 (日曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：Daiwa Roynet Hotel Sendai Nishiguchi Premier (Triple room) | 費用: ¥27,783 | CFM# T348F10912BOF</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">06:00 - 08:30</span>
+<span class="timeline-event" contenteditable="true">館鼻岸壁朝市</span>
+<span class="timeline-details" contenteditable="true">🚌 巴士 いさば號 (06:00-06:15, ¥200) | 08:45 回程巴士 N61 (¥250)</span>
+<a class="btn-map" href="https://www.google.com/maps/search/?api=1&query=館鼻岸壁朝市" target="_blank">🗺️ 地圖導覽</a>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">09:00 - 11:00</span>
+<span class="timeline-event" contenteditable="true">Hotel Check out ➔ 八戶駅</span>
+<span class="timeline-details" contenteditable="true">10:15 Check out | 🚕 的士至八戶駅 (10:30-11:00, ¥3,500)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">11:07 - 13:00</span>
+<span class="timeline-event" contenteditable="true">八戶駅 ➔ 仙台駅 ➔ Hotel Check in</span>
+<span class="timeline-details" contenteditable="true">🚅 新幹線 (11:07-12:29, 較早 10:17-11:29) | 12:29-13:00 Check in</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">13:00 - 20:30</span>
+<span class="timeline-event" contenteditable="true">仙台自由活動 / 中野榮 Shopping</span>
+<span class="timeline-details" contenteditable="true">🚆 JR仙台➔中野榮 (14:49-15:08) | 15:30-19:30 Shopping | 19:44-20:02 返回仙台</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">20:30 - 21:30</span>
+<span class="timeline-event" contenteditable="true">晚餐 (仙台)</span>
+</div>
+</div>
+
+<!-- Day 8 -->
+<div class="day-card">
+<div class="day-title" contenteditable="true">Day 8 - 2026/10/26 (月曜日)</div>
+<div class="hotel-info" contenteditable="true">🏨 住宿：家</div>
+
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">09:31 - 11:04</span>
+<span class="timeline-event" contenteditable="true">仙台駅 ➔ 東京駅</span>
+<span class="timeline-details" contenteditable="true">🚅 新幹線はやぶさ10號 (備選: 10:22-11:56)</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">11:15 - 15:45</span>
+<span class="timeline-event" contenteditable="true">東京自由時間</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">16:03 - 17:30</span>
+<span class="timeline-event" contenteditable="true">東京駅 ➔ 成田機場 T1</span>
+<span class="timeline-details" contenteditable="true">🚆 N'EX 特急 (16:03-16:57) | 17:00-17:30 機場 Check in</span>
+</div>
+<div class="timeline-item">
+<span class="timeline-time" contenteditable="true">20:20 - 00:50</span>
+<span class="timeline-event" contenteditable="true">HX611 成田機場 T1 ➔ 香港</span>
+</div>
+</div>
+</div>
+<!-- 頁籤 2: 行程預算 (完全動態編輯與自訂加總) -->
+<div id="tab-budget" class="tab-content">
+<div class="summary-card">
+<div class="day-title">📊 每日行程預算 (你可以隨時修改數值)</div>
+<p style="font-size: 0.8rem; color: #718096;">修改數值後，點擊下方「重新計算總預算」按鈕即可即時更新！</p>
+
+<table id="budget-table">
+<thead>
+<tr>
+<th>日期</th>
+<th>住宿 (JPY)</th>
+<th>交通 (JPY)</th>
+<th>門票 (JPY)</th>
+<th>膳食/其他 (JPY)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Day 1</td>
+<td><input type="number" class="budget-input b-hotel" value="122748"></td>
+<td><input type="number" class="budget-input b-trans" value="150000"></td>
+<td><input type="number" class="budget-input b-ticket" value="0"></td>
+<td><input type="number" class="budget-input b-food" value="20000"></td>
+</tr>
+<tr>
+<td>Day 2</td>
+<td><input type="number" class="budget-input b-hotel" value="0"></td>
+<td><input type="number" class="budget-input b-trans" value="1000"></td>
+<td><input type="number" class="budget-input b-ticket" value="0"></td>
+<td><input type="number" class="budget-input b-food" value="30000"></td>
+</tr>
+<tr>
+<td>Day 3</td>
+<td><input type="number" class="budget-input b-hotel" value="0"></td>
+<td><input type="number" class="budget-input b-trans" value="20800"></td>
+<td><input type="number" class="budget-input b-ticket" value="1800"></td>
+<td><input type="number" class="budget-input b-food" value="25000"></td>
+</tr>
+<tr>
+<td>Day 4</td>
+<td><input type="number" class="budget-input b-hotel" value="0"></td>
+<td><input type="number" class="budget-input b-trans" value="0"></td>
+<td><input type="number" class="budget-input b-ticket" value="0"></td>
+<td><input type="number" class="budget-input b-food" value="25000"></td>
+</tr>
+<tr>
+<td>Day 5</td>
+<td><input type="number" class="budget-input b-hotel" value="91260"></td>
+<td><input type="number" class="budget-input b-trans" value="1650"></td>
+<td><input type="number" class="budget-input b-ticket" value="2100"></td>
+<td><input type="number" class="budget-input b-food" value="10000"></td>
+</tr>
+<tr>
+<td>Day 6</td>
+<td><input type="number" class="budget-input b-hotel" value="27900"></td>
+<td><input type="number" class="budget-input b-trans" value="3200"></td>
+<td><input type="number" class="budget-input b-ticket" value="0"></td>
+<td><input type="number" class="budget-input b-food" value="28000"></td>
+</tr>
+<tr>
+<td>Day 7</td>
+<td><input type="number" class="budget-input b-hotel" value="27783"></td>
+<td><input type="number" class="budget-input b-trans" value="5000"></td>
+<td><input type="number" class="budget-input b-ticket" value="0"></td>
+<td><input type="number" class="budget-input b-food" value="30000"></td>
+</tr>
+<tr>
+<td>Day 8</td>
+<td><input type="number" class="budget-input b-hotel" value="0"></td>
+<td><input type="number" class="budget-input b-trans" value="0"></td>
+<td><input type="number" class="budget-input b-ticket" value="2100"></td>
+<td><input type="number" class="budget-input b-food" value="15000"></td>
+</tr>
+</tbody>
+</table>
+
+<div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center;">
+<label>同行人數：<input type="number" id="people-count" value="3" style="width: 50px; padding: 4px;"></label>
+<button class="btn-add" onclick="calculateBudget()">🔄 重新計算總預算</button>
+</div>
+
+<div class="summary-box">
+<div><strong>住宿總計：</strong> ¥<span id="total-hotel">269,691</span> JPY</div>
+<div><strong>交通總計：</strong> ¥<span id="total-trans">181,650</span> JPY</div>
+<div><strong>門票總計：</strong> ¥<span id="total-ticket">6,000</span> JPY</div>
+<div><strong>膳食/其他總計：</strong> ¥<span id="total-food">183,000</span> JPY</div>
+<hr style="border:0; border-top:1px solid #cbd5e0; margin:8px 0;">
+<div><strong>行程估算總費用：</strong> ¥<span id="total-grand" style="font-weight: bold; font-size: 1.1rem;">640,341</span> JPY</div>
+<div style="font-size: 1.1rem; color: #c53030; font-weight: bold; margin-top: 5px;">
+預估人均費用：約 ¥<span id="per-person-budget">213,447</span> JPY / 人
+</div>
+</div>
+</div>
+</div>
+
+<!-- 頁籤 3: 開支支出表 -->
+<div id="tab-expense" class="tab-content">
+<div class="expense-card">
+<div class="day-title">💳 現場實時開支記帳 (日圓 JPY)</div>
+
+<div class="input-group">
+<input type="text" id="exp-desc" placeholder="項目 (例: 大西拉麵Lunch)">
+<input type="number" id="exp-amount" placeholder="金額 (JPY)">
+<select id="exp-payer">
+<option value="Carol">Carol</option>
+<option value="公款">公款</option>
+<option value="成員 A">成員 A</option>
+<option value="成員 B">成員 B</option>
+</select>
+<button class="btn-add" onclick="addExpense()">新增紀錄</button>
+</div>
+
+<table id="expense-table">
+<thead>
+<tr>
+<th>項目</th>
+<th>金額 (JPY)</th>
+<th>付款人</th>
+<th>人均 (3人)</th>
+</tr>
+</thead>
+<tbody id="expense-list">
+<tr>
+<td>Daiwa Roynet Aomori 住宿費 (Day 1-4)</td>
+<td>¥122,748</td>
+<td>Carol</td>
+<td>¥40,916</td>
+</tr>
+<tr>
+<td>Aomoriya 青森屋 (Day 5)</td>
+<td>¥91,260</td>
+<td>Carol</td>
+<td>¥30,420</td>
+</tr>
+</tbody>
+</table>
+
+<div class="summary-box" style="background-color: #e6fffa;">
+<div><strong>當前實收/記帳總額：</strong> <span id="total-expense">¥103,508</span> JPY</div>
+<div><strong>當前實施人均費用：</strong> <span id="per-person-expense">¥34,503</span> JPY / 人</div>
+</div>
+</div>
+</div>
+
+<!-- 底部 Tab 導覽列 -->
+<div class="tab-bar">
+<button class="tab-button active" onclick="switchTab('tab-itinerary', this)">
+<span>🗓️</span> 行程
+</button>
+<button class="tab-button" onclick="switchTab('tab-budget', this)">
+<span>📊</span> 行程預算
+</button>
+<button class="tab-button" onclick="switchTab('tab-expense', this)">
+<span>💳</span> 開支支出表
+</button>
+</div>
+
+<script>
+// Tab 切換
+function switchTab(tabId, btn) {
+document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active'));
+document.getElementById(tabId).classList.add('active');
+btn.classList.add('active');
+}
+
+// 預算動態計算邏輯
+function calculateBudget() {
+let hotelSum = 0, transSum = 0, ticketSum = 0, foodSum = 0;
+
+document.querySelectorAll('.b-hotel').forEach(i => hotelSum += parseFloat(i.value) || 0);
+document.querySelectorAll('.b-trans').forEach(i => transSum += parseFloat(i.value) || 0);
+document.querySelectorAll('.b-ticket').forEach(i => ticketSum += parseFloat(i.value) || 0);
+document.querySelectorAll('.b-food').forEach(i => foodSum += parseFloat(i.value) || 0);
+
+const grandTotal = hotelSum + transSum + ticketSum + foodSum;
+const people = parseInt(document.getElementById('people-count').value) || 1;
+const perPerson = Math.round(grandTotal / people);
+
+document.getElementById('total-hotel').innerText = hotelSum.toLocaleString();
+document.getElementById('total-trans').innerText = transSum.toLocaleString();
+document.getElementById('total-ticket').innerText = ticketSum.toLocaleString();
+document.getElementById('total-food').innerText = foodSum.toLocaleString();
+document.getElementById('total-grand').innerText = grandTotal.toLocaleString();
+document.getElementById('per-person-budget').innerText = perPerson.toLocaleString();
+}
+
+// 開支記帳動態新增
+let currentExpenseTotal = 269691;
+
+function addExpense() {
+const desc = document.getElementById('exp-desc').value;
+const amount = parseFloat(document.getElementById('exp-amount').value);
+const payer = document.getElementById('exp-payer').value;
+
+if (!desc || isNaN(amount)) {
+alert('請填寫完整的項目名稱與金額！');
+return;
+}
+
+const people = parseInt(document.getElementById('people-count').value) || 3;
+const perPerson = Math.round(amount / people);
+
+const tr = document.createElement('tr');
+tr.innerHTML = `
+<td>${desc}</td>
+<td>¥${amount.toLocaleString()}</td>
+<td>${payer}</td>
+<td>¥${perPerson.toLocaleString()}</td>
+`;
+document.getElementById('expense-list').appendChild(tr);
+
+currentExpenseTotal += amount;
+document.getElementById('total-expense').innerText = `¥${currentExpenseTotal.toLocaleString()}`;
+document.getElementById('per-person-expense').innerText = `¥${Math.round(currentExpenseTotal / people).toLocaleString()}`;
+
+document.getElementById('exp-desc').value = '';
+document.getElementById('exp-amount').value = '';
+}
+
+// 初始化預算計算
+calculateBudget();
+</script>
+</body>
+</html>
